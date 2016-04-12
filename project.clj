@@ -10,6 +10,7 @@
                  ]
   :target-path "target/%s"
   :ring {:handler test-fb.handler/app
+         :port 80
          :uberwar-name "test-fb.war"
          }
   :profiles {:dev {:plugins [[lein-ring "0.9.7"]
