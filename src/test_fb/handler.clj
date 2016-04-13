@@ -1,13 +1,16 @@
 (ns test-fb.handler
   (:require [ring.middleware.defaults :refer (wrap-defaults site-defaults secure-site-defaults)]
-            [ring.util.response :refer (not-found response)]
+            [ring.util.response :refer (not-found response content-type)]
             [taoensso.timbre :as log]
             [clojure.string :refer (trim blank?)]
             [clojure.java.io :as io]
             ))
 
 (defn handler [request]
-  (response "hello world"))
+  (->
+    (response "hello world")
+    (content-type "text/plain")
+    ))
 
 (def app
   (-> handler
